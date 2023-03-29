@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Meal from '../Meal/Meal';
 import Modal from '../Modal/Modal';
+import Order from '../Order/Order';
 
 const Container = () => {
     const [meals, setMeals] = useState([]);
@@ -19,7 +20,7 @@ const Container = () => {
         .then(data => setMeals(data.meals))
     },[])
     return (
-        <div className='flex'>
+        <div className='flex gap-3'>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5 m-8'>
                 {
                     meals.map(meal=> <Meal key={meal.idMeal} meal={meal} setUniqueId={setUniqueId}></Meal>)
@@ -27,7 +28,7 @@ const Container = () => {
                 <Modal meal={meal}></Modal>
             </div>
             <div>
-                order summ
+                <Order></Order>
             </div>
         </div>
     );
